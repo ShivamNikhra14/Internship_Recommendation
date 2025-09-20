@@ -13,11 +13,12 @@ def get_top_internships(skills, education, location, top_n=4):
 
     # Setup Selenium Chrome
     options = webdriver.ChromeOptions()
-    options.add_argument("--headless")  
+    options.add_argument("--headless=new")
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
-
+    options.binary_location = "/usr/bin/chromium-browser"  # ensure Chromium path
     driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=options)
+
     driver.get(url)
     time.sleep(3)  # wait for JS
     soup = BeautifulSoup(driver.page_source, "html.parser")
