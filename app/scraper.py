@@ -7,7 +7,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics.pairwise import cosine_similarity
 import time
 
-def get_internships_tfidf_full(skills, education, location, top_n=4):
+def get_top_internships(skills, education, location, top_n=4):
     skill_query = "-".join(skills).lower()
     url = f"https://internshala.com/internships/internship-in-{location.lower()}/keywords-{skill_query}"
 
